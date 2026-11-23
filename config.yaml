@@ -1,0 +1,101 @@
+# IncuBrix Multi-Channel Lead Generation & Outreach Engine Configuration
+
+engine:
+  name: "IncuBrix Growth Engine"
+  version: "1.0.0"
+  reference_date: "2026-11-23" # Current engine execution date
+  db_path: "logs/engine_history.db"
+
+target_criteria:
+  approved_segments:
+    - "podcaster"
+    - "video_podcaster"
+    - "youtuber"
+    - "video_first_creator"
+    - "coach"
+    - "consultant"
+    - "educator"
+    - "expert_creator"
+  
+  excluded_segments:
+    - "agency"
+    - "management_firm"
+    - "generic_brand"
+    - "publication"
+    - "directory"
+    - "fan_account"
+
+  approved_countries:
+    - "US"
+    - "CA"
+    - "GB"
+    - "IE"
+    - "AU"
+    - "NZ"
+    - "SG"
+
+  portfolio_constraints:
+    min_approved_country_ratio: 0.80
+    min_distinct_countries: 3
+    max_single_country_ratio: 0.60
+    approved_language: "en"
+
+qualification:
+  activity_thresholds:
+    min_content_30d: 8
+    min_longform_60d: 2
+    max_inactivity_days: 60
+  
+  require_commercial_evidence: true
+  require_need_evidence: true
+  require_reachable_contact: true
+  max_checked_age_days: 30
+
+scoring:
+  rubric:
+    activity_consistency:
+      max_points: 20
+      weight: 0.20
+    commercial_signals:
+      max_points: 20
+      weight: 0.20
+    incubrix_product_fit:
+      max_points: 25
+      weight: 0.25
+    reachability:
+      max_points: 15
+      weight: 0.15
+    evidence_quality:
+      max_points: 20
+      weight: 0.20
+  
+  priority_thresholds:
+    priority_a_min_score: 80
+    priority_a_max_count: 25 # Capped at top 25 per requirement
+    priority_b_min_score: 65
+
+channels:
+  primary_preference_order:
+    - "Email"
+    - "LinkedIn"
+    - "YouTube Business Contact"
+  backup_fallback:
+    "Email": "LinkedIn"
+    "LinkedIn": "YouTube Business Contact"
+    "YouTube Business Contact": "Email"
+
+outreach:
+  sender_name: "Pranathi Bobbireddi"
+  sender_role: "Growth Engineer at IncuBrix"
+  sender_email: "growth@incubrix.com"
+  booking_link: "https://incubrix.com/demo/workflow-audit"
+  opt_out_text: "To opt out of future updates, reply 'stop' or unsubscribe at https://incubrix.com/unsubscribe."
+
+paths:
+  input_dir: "data/input"
+  output_dir: "data/output"
+  leads_csv: "data/output/leads.csv"
+  verified_leads_csv: "data/output/verified_leads.csv"
+  all_reviewed_csv: "data/output/all_reviewed_leads.csv"
+  outreach_dir: "outreach"
+  reports_dir: "reports"

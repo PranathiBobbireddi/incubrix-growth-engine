@@ -1,0 +1,16 @@
+# Core Data & Engine
+pandas>=2.0.0
+openpyxl>=3.1.0
+PyYAML>=6.0
+pydantic>=2.0.0
+requests>=2.28.0
+
+# UI & Dashboard
+streamlit>=1.30.0
+altair>=5.0.0
+
+# Testing
+pytest>=7.4.0
+
+# Optional APIs (used if keys provided)
+google-api-python-client>=2.100.0
